@@ -4,6 +4,15 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 const BlogPosts = ({ data }) => {
   const blogPosts = data.allContentfulBlog.edges;
+  try {
+    const attempt = await fetch('/api/handleRequests');
+    console.log('Im trying');
+    console.log(attempt);
+  } catch(err) {
+    console.log('I failed');
+    console.error(err);
+  }
+
   return (
     <Layout>
       <SEO title="Blog posts" />
