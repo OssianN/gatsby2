@@ -2,12 +2,12 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-const BlogPosts = ({ data }) => {
+const BlogPosts = async ({ data }) => {
   const blogPosts = data.allContentfulBlog.edges;
   try {
-    const attempt = await fetch('/api/handleRequests');
+    const attempt = await fetch('/api/test');
     console.log('Im trying');
-    console.log(attempt);
+    console.log(attempt.body, '===attempt===');
   } catch(err) {
     console.log('I failed');
     console.error(err);
